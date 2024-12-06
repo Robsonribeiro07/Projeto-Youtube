@@ -574,4 +574,4 @@ height: 10%;
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Cor da parte arrastável quando o mouse passa em cima */
 }
-`;function w6(){return H.jsx(Bm,{theme:Ym,children:H.jsx(f2,{children:H.jsxs(Kg,{children:[H.jsx(y6,{}),H.jsx(v6,{})]})})})}Wp.createRoot(document.getElementById("root")).render(H.jsx(A.StrictMode,{children:H.jsx(w6,{})}));
+`;function w6(){return H.jsx(Bm,{theme:Ym,children:H.jsx(f2,{basename:"/Projeto-Youtube",children:H.jsxs(Kg,{children:[H.jsx(y6,{}),H.jsx(v6,{})]})})})}Wp.createRoot(document.getElementById("root")).render(H.jsx(A.StrictMode,{children:H.jsx(w6,{})}));
