@@ -1,4 +1,4 @@
-    import React, { useState } from "react";
+    import { useState } from "react";
     import { UsersContent, VideoNovo } from "./style";
     import { User } from "@phosphor-icons/react";
 

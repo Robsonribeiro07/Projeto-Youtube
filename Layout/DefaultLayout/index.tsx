@@ -3,7 +3,7 @@ import {Header} from '../../components/Header/index'
 
 import {LeftSide} from '../../components/LeftSide/index'
 import { Outlet } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 export function DefaultLayout(){
     const [ShowMoreLeftSide, SetShowMoreLeftSide] = useState<boolean>(false)
 

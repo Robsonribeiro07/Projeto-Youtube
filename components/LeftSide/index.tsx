@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Explorar, LefSide, NavHome, NavInscricoes, YourNav } from "./style";
 import { UsersSide} from "../user/index"
 import { Bag, CaretDown, CaretRight, CaretUp, Clock, ClockCounterClockwise, House, MagnifyingGlass, MusicNotes, Queue, ThumbsUp,  } from "@phosphor-icons/react";
@@ -21,8 +21,8 @@ import { ProductContext } from "../../Provide";
       const location = useLocation()
 
       
-
-      const {user, setUser} = useContext(ProductContext)
+ 
+      const {user} = useContext(ProductContext)
 
 
       useEffect(() => {
