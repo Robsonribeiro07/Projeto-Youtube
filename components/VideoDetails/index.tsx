@@ -2,23 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { VideoContent } from "./style";
 import { ProductContext } from "../../Provide";
 import { Video } from "@phosphor-icons/react";
-interface propsUser {
-    name: string;
-    imgUrl: string;
-    VideoNovo?: boolean;
-    Inscrito: boolean;
-    Inscritos: number
-    VideosUsers?: {
-        videoId: string;
-        ImgUrlVideo: string;
-        title: string;
-        views: string; // Ajustado para 'number'
-        description: string;
-        comments: number;
-        dislikes: number;
-        likes: number;
-    }[];
-}
+
 
 interface Video {
     videoId: string;
@@ -32,9 +16,9 @@ interface Video {
 }
 
 interface User {
-    UserData: propsUser;
+    UserData: any;
     VideoUser: Video
-    AllVideo: propsUser[]
+    AllVideo: any
 }
 
 
@@ -65,6 +49,7 @@ export function VideoDetails ({UserData, VideoUser, AllVideo}: User) {
           UserInformation: {
             name: UserData.name,
             imgUrl: UserData.imgUrl,
+            Inscrito: UserData.Inscrito,
             Inscritos: UserData.Inscritos
           },
           VideoId: VideoUser.videoId, // Passando o ID do vídeo
@@ -73,7 +58,6 @@ export function VideoDetails ({UserData, VideoUser, AllVideo}: User) {
           VideoComent: VideoUser.comments, // Passando o número de comentários
           VideoDesript: VideoUser.description, // Passando a descrição do vídeo
           VideoTitle: VideoUser.title,
-          Inscrito: UserData.Inscrito
         },
         VideoPage: AllVideo, // Página com todos os vídeos do usuário
       });

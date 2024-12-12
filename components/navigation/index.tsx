@@ -24,7 +24,7 @@
         const listRef = useRef<HTMLUListElement | null>(null)
         const itemRef = useRef<HTMLLIElement | null>(null)
 
-        const handleMouseDown = (e) => { // funçao para inicia o touchEvent no Navigation
+        const handleMouseDown = (e: React.TouchEvent) => { // funçao para inicia o touchEvent no Navigation
             
             const posX = e.touches[0].clientX
             setStartX(posX - positonX)
@@ -36,7 +36,7 @@
 
 
 
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: React.TouchEvent) => {
             
             if(!onDragStart) return
 

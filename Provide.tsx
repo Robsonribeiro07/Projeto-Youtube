@@ -40,6 +40,7 @@ interface UserProps {
 interface UserContextProps {
     user: UserProps[];
     filteredUser: UserProps[];
+    inputValue: string;
     SetUser: React.Dispatch<SetStateAction<UserProps[]>>;
     filtered: string;
     SetFiltered: React.Dispatch<SetStateAction<string>>;
@@ -59,10 +60,13 @@ interface ProviderContentProps {
 }
 
 type VideoAtual = {
+    Inscrito?: boolean;
     UserInformation: {
       name: string;
       imgUrl: string;
       Inscritos: number
+      Inscrito: boolean
+
     };
     VideoId: string;
     VideoImg: string;
@@ -70,7 +74,6 @@ type VideoAtual = {
     VideoComent: number;
     VideoDesript: string;
     VideoTitle: string;
-    Inscrito: boolean
     
   };
 
@@ -80,6 +83,7 @@ type VideoAtual = {
         name: "",
         imgUrl: "",
         Inscritos: 0,
+        Inscrito: false
       },
       VideoId: "",
       VideoImg: "",
@@ -87,7 +91,6 @@ type VideoAtual = {
       VideoComent: 0,
       VideoDesript: "",
       VideoTitle: "",
-      Inscrito: false,
     },
     VideoPage: [],
   };
@@ -105,7 +108,8 @@ export const ProductContext = createContext<UserContextProps>({
     handleAnimationStartWhitoutNavigate: () => {},
     disabledLeft: false,
     setDisabled: () => {},
-    setInputValue: () => {}
+    setInputValue: () => {},
+    inputValue: ''
 });
 
     export const ProviderContent: React.FC<ProviderContentProps>= ({ children}) => {
@@ -290,14 +294,14 @@ export const ProductContext = createContext<UserContextProps>({
 
         const [VideoAExibir, setVideoAExibir] = useState<VideoExibir>({
             videoAtual: {
-                UserInformation: { name: "", imgUrl: "" , Inscritos: 0},
+                UserInformation: { name: "", imgUrl: "" , Inscritos: 0, Inscrito: false},
                 VideoId: "",
                 VideoImg: "",
                 VideoLike: 0,
                 VideoComent: 0,
                 VideoDesript: "",
                 VideoTitle: '',
-                Inscrito: false,
+
             },
             VideoPage: []
         });

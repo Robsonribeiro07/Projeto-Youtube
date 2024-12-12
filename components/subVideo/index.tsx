@@ -9,14 +9,21 @@ import { useContext } from "react";
 
 // Detalhes do Vídeo
 type VideoDetails = {
+  videoId: string;
   VideoId: string;
-  VideoImg: string;
-  VideoLike: number;
-  VideoComent: number;
-  VideoDesript: string;
-  VideoTitle: string;
+  videoImg: string;
+  videoLike: number;
+  videoComent: number;
+  videoDesript: string;
+  videoTitle: string;
   ImgUrlVideo: string
+  likes: number;
+  VideoComent: number;
+  description: string;
+  title: string
+  VideoTitle: string
 };
+
 
 // Estrutura Principal do Vídeo
 type VideoAtual = {
@@ -24,7 +31,7 @@ type VideoAtual = {
   imgUrl: string;
   Inscritos: number;
   Inscrito: boolean;
-  VideosUsers: VideoDetails; // Array de vídeos
+  VideosUsers: VideoDetails[]; // Array de vídeos
 };
 
 // Propriedades Esperadas no Componente
@@ -74,7 +81,8 @@ export function SubVideo({ video }: videoProps) {
 
   return (
     <SubVideoContent onClick={() => handleVideoExibir(video)}>
-      {video.VideosUsers.map((videos, index) => (
+        
+      {video.VideosUsers.map((videos, index: number) => (
         <div className="leftSide" key={videos.VideoId || index}>
           <img src={videos.ImgUrlVideo} alt={videos.VideoTitle} />
 

@@ -9,7 +9,6 @@ import { ProductContext } from "../../Provide";
 
 interface Props {
     activeShowMore: React.Dispatch<React.SetStateAction<boolean>>;
-    zhandleDefaultNav: () => void;
     handleDefaultNav: () => void;
 }
 

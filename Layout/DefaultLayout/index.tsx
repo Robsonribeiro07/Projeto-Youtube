@@ -25,7 +25,7 @@ export function DefaultLayout(){
             <Header activeShowMore={SetShowMoreLeftSide} handleDefaultNav={handleDefaultNav}/>
           
           <div className="content">
-          <LeftSide ShowMore={ShowMoreLeftSide} activeShowMore={SetShowMoreLeftSide} defaultNav={defaultNav} setDeafultNav={setDefaultNavState}/>
+          <LeftSide ShowMore={ShowMoreLeftSide}  defaultNav={defaultNav} setDeafultNav={setDefaultNavState}/>
           <div className="ContentPage">
          <Outlet/>
           </div>

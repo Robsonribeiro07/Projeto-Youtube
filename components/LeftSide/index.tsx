@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Explorar, HomeDefaultNav, LefSide, NavHome, NavHomeDefault, NavInscricoes, YourNav } from "./style";
+import { Explorar, LefSide, NavHome, NavHomeDefault, NavInscricoes, YourNav } from "./style";
 import { UsersSide} from "../user/index"
 import { Bag, CaretDown, CaretRight, CaretUp, Clock, ClockCounterClockwise, House, MagnifyingGlass, MusicNotes, Queue, ThumbsUp, UserCircle,  } from "@phosphor-icons/react";
 import React from "react";

@@ -1,4 +1,4 @@
-import { DotsThreeCircleVertical, DotsThreeVertical } from "@phosphor-icons/react";
+import {  DotsThreeVertical } from "@phosphor-icons/react";
 import { AnuncioContent } from "./style";
 import { useEffect, useState } from "react";
 

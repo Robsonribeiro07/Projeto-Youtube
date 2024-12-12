@@ -1,5 +1,4 @@
-  import React, { useContext, useEffect, useState } from "react";
-  import YoutubePlayer from "youtube-player";
+  import { useContext, useEffect, useState } from "react";
   import { Bell, CaretDown, ShareFat, ThumbsDown, ThumbsUp } from "@phosphor-icons/react";
   import { RightSide, VideoPage } from "./style";
   import { VideoPageNavigation } from "../../components/NavigationVideo/index.tsx";
@@ -8,6 +7,7 @@
   import { SubVideo } from "../../components/subVideo/index.tsx";
   import { ProductContext } from "../../Provide.tsx";
   import { CommentDescription } from "../../components/CommentDescription/index.tsx";
+  import YoutubePlayer from 'youtube-player'
 
   export function VideoPageHome() {
     const { VideoAExibir, setVideoAExibir } = useContext(ProductContext);
@@ -44,7 +44,7 @@
           }
         })
 
-        ytPlayer.on("stateChange", async (event) => { // salvando o video sempre que for
+        ytPlayer.on("stateChange", async (event: any) => { // salvando o video sempre que for
           if (event.data === 2) { // Pausado
             const currentTime = await ytPlayer.getCurrentTime();
             localStorage.setItem("SavedTime", currentTime.toString());
@@ -102,7 +102,10 @@
                     <h4>{videoState.videoAtual.UserInformation.name}</h4>
                     <p>{`${videoState.videoAtual.UserInformation.Inscritos ?? 0} mil Inscritos`}</p>
                   </div>
-                  <div className="inscritionContent">
+                  
+                  <div className="inscritionContent"> 
+                    
+                    //
                     {VideoAExibir?.videoAtual?.Inscrito ? (
                       <>
                         <Bell size={23} />
@@ -147,11 +150,13 @@
           <SubAnuncioContent />
           {VideoAExibir.VideoPage.filter(
             (user) =>
-              !user.VideosUsers.some(
+              !user.VideosUsers?.some(
                 (video) => video.videoId === VideoAExibir.videoAtual.VideoId
               )
           ).map((user) => (
-            <SubVideo video={user} key={user.id} />
+
+            // @ts-expect-error error na tipagem do video 
+            <SubVideo video={user} key={videoState.videoAtual.VideoId || VideoAExibir.videoAtual.VideoId} />
           ))}
         </RightSide>
       </VideoPage>
