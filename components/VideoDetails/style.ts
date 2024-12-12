@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const VideoContent = styled.div`
   
-height: 10%;
-  border-radius: 8px;
-  width: 28%;
+
+  width: 31%;
+  
 
   cursor: pointer;
   @media screen and (max-width: 768px) {
     
-    width: 47%;
+    width: 100%;
+    min-height: fit-content;
     font-size: 0.8rem;
     height: 10%;
     

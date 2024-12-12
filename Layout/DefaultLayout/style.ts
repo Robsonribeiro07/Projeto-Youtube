@@ -13,7 +13,7 @@ height: 100vh;
 .content {
     display: flex;
     width: 100vw;
-    gap: 1rem;
+
    
 }
 `

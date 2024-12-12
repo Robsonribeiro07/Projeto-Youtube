@@ -1,40 +1,62 @@
 import { HeaderContainer } from "./style";
 import youtubeLogo from '../../src/assets/svg/youtubeLogo.svg'
-import React, { useContext } from "react";
+import React, { useContext,  } from "react";
 import { List, MagnifyingGlass } from "@phosphor-icons/react";
 import { Bell, Microphone, VideoCamera } from "@phosphor-icons/react/dist/ssr";
 import { ProductContext } from "../../Provide";
 
 
+
 interface Props {
     activeShowMore: React.Dispatch<React.SetStateAction<boolean>>;
+    zhandleDefaultNav: () => void;
+    handleDefaultNav: () => void;
 }
 
 
 
-export function Header({activeShowMore}: Props) {
+export function Header({activeShowMore, handleDefaultNav}: Props) {
+    const windowWidth = 768
+
     
     
-    const {animationHeader, handleAnimationStart} = useContext(ProductContext)
+    const {animationHeader, handleAnimationStartWhitoutNavigate, setDisabled, setInputValue} = useContext(ProductContext)
   
-    const handleShowMoreLeftSide = () => {
-        activeShowMore(prev => !prev)
-      }
+    
  
       
+    const handleFunctions = () => {
+        setDisabled(false)
+
+        
+        if(window.innerWidth < windowWidth) {
+            activeShowMore(prev => !prev)
+                    
+            } else if(window.innerWidth > windowWidth) {
+                handleDefaultNav()
+                    
     
+            }
+
+
+            
+
+    }
+    
+
+    const handleValueInput = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event?.currentTarget.value)
     return(
         <HeaderContainer className={animationHeader ? "active" : ""}>
-        <div className="navYoutube" onClick={() => handleAnimationStart('/home')}> 
-         <List size={25} color="white" onClick={handleShowMoreLeftSide}  />
+        <div className="navYoutube" > 
+         <List size={25} color="white" onClick={handleFunctions}  />
 
-         <img src={youtubeLogo} alt="" />
+         <img src={youtubeLogo} alt="" onClick={() => handleAnimationStartWhitoutNavigate('/home')}/>
 
         </div>
 
         <div className="assetsSearch">
         <div className="navSearch">
-            <input type="text" placeholder="Pesquisar" />
+            <input type="text" placeholder="Pesquisar" onChange={(event) => handleValueInput(event)} />
             <div className="icone">
             <MagnifyingGlass color="white" size={25} />
             </div>

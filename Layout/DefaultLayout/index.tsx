@@ -6,13 +6,26 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 export function DefaultLayout(){
     const [ShowMoreLeftSide, SetShowMoreLeftSide] = useState<boolean>(false)
+    const [defaultNav, setDefaultNavState] = useState(false)
+
+
+
+    const handleDefaultNav = () => {
+        setDefaultNavState(prev => !prev)
+
+        
+    }
+
+    
+  
+  
 
     return(
         <LayoutContainer>
-            <Header activeShowMore={SetShowMoreLeftSide}/>
+            <Header activeShowMore={SetShowMoreLeftSide} handleDefaultNav={handleDefaultNav}/>
           
           <div className="content">
-          <LeftSide ShowMore={ShowMoreLeftSide}/>
+          <LeftSide ShowMore={ShowMoreLeftSide} activeShowMore={SetShowMoreLeftSide} defaultNav={defaultNav} setDeafultNav={setDefaultNavState}/>
           <div className="ContentPage">
          <Outlet/>
           </div>

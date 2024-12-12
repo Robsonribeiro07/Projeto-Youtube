@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const HomePageContent = styled.div`
 background-color: #0f0f0f;
-
+padding-left: 2rem;
 height: 100vh;
-padding: 0.5rem;
 flex-direction: column;
+margin-top: 0.5rem;
+gap: 1.5rem;
 display: flex;
-width: 90vw;
-gap: 1rem;
 
+@media screen and (max-width: 768px) {
+    padding: 0;
+    
+}
 ul {
     display: flex;
     gap: 1rem;
@@ -19,9 +22,15 @@ ul {
 .VideoContainer {
     display: flex; 
     flex-wrap: wrap;
-    gap: 1rem;
     width: 100%;
-    margin-left: 1rem;
+    gap: 1.5rem;
+    
+
+    @media screen and (max-width:768px) {
+        gap: 1.5rem;
+    flex-direction: column;
+        
+    }
 } 
 
 `

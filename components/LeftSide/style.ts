@@ -10,19 +10,25 @@ interface LeftProps {
 export const LefSide = styled.div<LeftProps>`
 
 height: 100%;
-min-width: 17vw;
-padding: 0.6rem 1rem;
 display: flex;
 flex-direction: column;
-overflow: auto;
 gap: 1rem;
+min-width: ${props => props.activeLeft ? "20vw" : "0px"};   
+position: relative;
+min-width: 15vw;
 user-select: none;
 
+
+margin-left: 1rem;
 @media screen and (max-width: 768px) {
-   min-width: ${props => props.activeLeft ? "40vw" : "0"};
-   position: relative;
-   display: ${props => props.activeLeft ? "flex" : "none"};
+   min-width: ${props => props.activeLeft ? "40vw" : "0px"};
+
+
+   
+  display: ${props => props.activeLeft ? "flex" : "none"};
+
 }
+
 
 .assets {
     span {
@@ -58,6 +64,11 @@ export  const NavHome = styled.div`
 width: 100%;
 display: flex;
 flex-direction: column;
+.active {
+    background-color: #3f3f3f   ;
+
+    
+}
 
 
 &::after {
@@ -210,4 +221,40 @@ span {
 }
 }
 
+`
+
+export  const NavHomeDefault = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+
+
+.active {
+    background-color: #3f3f3f   ;
+
+    
+}
+
+
+
+span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    flex-direction: column;
+    padding: 0.5rem;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 10px;
+    cursor: pointer;
+    &:hover {
+    background-color: #3f3f3f   ;
+}
+
+    img {
+        width: 23px;
+    }
+}
 `

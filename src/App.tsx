@@ -7,7 +7,7 @@ import {GlobalStyle} from '../Theme/global.ts'
 export function App() {
   return (
    <ThemeProvider theme={DefaultTheme}>
-    <BrowserRouter>
+    <BrowserRouter basename={'/Projeto-Youtube'} >
     <ProviderContent>
     <GlobalStyle/>
      <AppRouter/>
