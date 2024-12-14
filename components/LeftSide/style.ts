@@ -17,9 +17,8 @@ min-width: ${props => props.activeLeft ? "20vw" : "0px"};
 position: relative;
 min-width: 15vw;
 user-select: none;
-
-
 margin-left: 1rem;
+
 @media screen and (max-width: 768px) {
    min-width: ${props => props.activeLeft ? "40vw" : "0px"};
 
@@ -103,6 +102,7 @@ display: flex;
 width: 100%;
 flex-direction: column;
   align-items: start;
+  white-space: nowrap;
 
   &::after {
     content: '';

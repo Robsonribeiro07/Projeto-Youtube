@@ -16,18 +16,17 @@ type VideoDetails = {
   videoComent: number;
   videoDesript: string;
   videoTitle: string;
-  ImgUrlVideo: string
+  ImgUrlVideo: string;
   likes: number;
   VideoComent: number;
   description: string;
-  title: string
-  VideoTitle: string
+  title: string;
+  VideoTitle: string;
 };
-
 
 // Estrutura Principal do Vídeo
 type VideoAtual = {
-    name: string;
+  name: string;
   imgUrl: string;
   Inscritos: number;
   Inscrito: boolean;
@@ -69,7 +68,7 @@ export function SubVideo({ video }: videoProps) {
 
     setVideoAExibir(updatedState);
 
-    console.log(videoUser)
+    console.log(videoUser);
 
     localStorage.setItem("NovoVideo", JSON.stringify(updatedState));
     handleAnimationStartWhitoutNavigate("/watch");
@@ -80,21 +79,25 @@ export function SubVideo({ video }: videoProps) {
   };
 
   return (
-    <SubVideoContent onClick={() => handleVideoExibir(video)}>
-        
+    <>
       {video.VideosUsers.map((videos, index: number) => (
-        <div className="leftSide" key={videos.VideoId || index}>
-          <img src={videos.ImgUrlVideo} alt={videos.VideoTitle} />
-
-          <div className="detailsText">
-            <p>{videos.VideoTitle}</p>
-            <h5>{video.name}</h5>
-            <h6>36 mil visualizações há 1 dia</h6>
-            <span>Novo</span>
+        <SubVideoContent
+          key={videos.VideoId || index}
+          onClick={() => handleVideoExibir(video)}
+          className="videoItem"
+        >
+          <div className="leftSide">
+            <img src={videos.ImgUrlVideo} alt={videos.VideoTitle} />
+            <div className="detailsText">
+              <p>{videos.title}</p>
+              <h5>{video.name}</h5>
+              <h6>36 mil visualizações há 1 dia</h6>
+              <span>Novo</span>
+            </div>
           </div>
-        </div>
+          <DotsThreeVertical size={25} className="list" />
+        </SubVideoContent>
       ))}
-      <DotsThreeVertical size={25} className="list" />
-    </SubVideoContent>
+      </>
   );
 }

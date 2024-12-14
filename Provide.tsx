@@ -52,6 +52,8 @@ interface UserContextProps {
     disabledLeft: boolean;
     setDisabled: React.Dispatch<SetStateAction<boolean>>;
     setInputValue: React.Dispatch<SetStateAction<string>>
+    setFilteredUserWhitoutInput: React.Dispatch<SetStateAction<string>>;
+    setLimited:  React.Dispatch<SetStateAction<number>>;
 
 }
 
@@ -109,20 +111,20 @@ export const ProductContext = createContext<UserContextProps>({
     disabledLeft: false,
     setDisabled: () => {},
     setInputValue: () => {},
-    inputValue: ''
+    inputValue: '',
+    setFilteredUserWhitoutInput: () => {},
+    setLimited: () => {}
 });
 
     export const ProviderContent: React.FC<ProviderContentProps>= ({ children}) => {
         const [user, SetUser] = useState<UserProps[]>(
             [
-                { name: "mylon",
+                { name: "Mylon",
                 imgUrl: "https://yt3.ggpht.com/ytc/AIdro_nRU8lK76jaBrhna3OJk9LJOG2wZKXMK21LynWksYTZ7g=s88-c-k-c0x00ffffff-no-rj",
                 VideoNovo: true,
                 Inscritos: 150,
                 Inscrito: true,
                 VideosUsers: [
-
-            
                     {
                     ImgUrlVideo: "https://i.ytimg.com/vi/b1orz-TSCGQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDw60wOh3T-5d0jK2X1GFzLe1PmfA",
                     videoId: "b1orz-TSCGQ",
@@ -136,10 +138,45 @@ export const ProductContext = createContext<UserContextProps>({
                     category: [
                         "Filmes",
                         "league of legends",
-                        "lol"
+                        "lol",
+                        'Jogos'
                     ]
-                    }   
-                ]
+                    },
+                    {
+                        ImgUrlVideo: "https://i.ytimg.com/vi/hfxdEOv9reo/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCzR9aOMmGkN1IhSTIUh_JsO7gCRw",
+                        videoId: "hfxdEOv9reo",
+                        title: "COMO CARREGAR JOGOS POR SIMPLESMENTE EXISTIR?",
+                        description: `
+                        164.076 visualizações  11 de dez. de 2024
+                        Avalie o vídeo clicando no gostei e compartilhando com seus amigos! 👍
+
+                        🖥️ STREAM NO SITE ROXO! /Mylonzete
+                        📸 INSTAGRAM: /Mylonzete
+                        🐦TWITTER: /Mylonzete
+
+                        --------------------------------------------------------------------------
+
+                        🎬 Edição por equipe Matheus Miranda (Entre em contato para orçamentos 👇)
+
+                        📹 Youtube: https://abrir.link/jlIWq
+                        📸 Instagram: @matheus.mov
+                        📧 Email: ocontatomatheusmiranda@hotmail.com
+                        Transcrição`,
+                        views: '100',
+                        likes: 2500,
+                        dislikes: 100,
+                        comments: 10000,
+                        
+                        category: [
+                            "Filmes",
+                            "league of legends",
+                            "lol",
+                            'Jogos'
+
+                        ]
+                        }   
+
+                ],
                 
 
                 },
@@ -185,7 +222,8 @@ export const ProductContext = createContext<UserContextProps>({
                             category: [
                                 "games",
                                 "league of legends",
-                                "lol"
+                                "lol",
+                                "Jogos"
                             ]
 
 
@@ -210,7 +248,8 @@ export const ProductContext = createContext<UserContextProps>({
                                 category: [
                                     "games",
                                     "league of legends",
-                                    "lol"
+                                    "lol",
+                                    'Jogos'
 
                                 ]
                             }   
@@ -231,9 +270,9 @@ export const ProductContext = createContext<UserContextProps>({
                             dislikes: 100,
                             comments: 10000,
                             category: [
-                                "Musicas",
                                 "league of legends",
-                                "lol"
+                                "lol",
+                                "Jogo"
 
                             ]
                         }   
@@ -255,9 +294,89 @@ export const ProductContext = createContext<UserContextProps>({
                             dislikes: 100,
                             comments: 10000,
                             category: [
-                                "Musicas",
                                 "league of legends",
-                                "lol"
+                                "lol",
+                                'Jogos'
+
+                            ]
+                        },
+                        {
+                            ImgUrlVideo: "https://i.ytimg.com/vi/ppzzANezGso/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA327e71PbAGFavCI8Htm6Vw2DrUw",
+                            videoId: "ppzzANezGso",
+                            title: "É OBRIGATÓRIO pegar JINX quando seu suporte pega MILIO?!",
+                            description: "O quão RUINS (ou boas?!) foram as MUDANÇAS NO SMOLDER?",
+                            views: '69',
+                            likes: 549,
+                            dislikes: 100,
+                            comments: 10000,
+                            category: [
+                                "league of legends",
+                                "lol",
+                                'Jogos'
+
+                            ]
+                        },
+                        {
+                            ImgUrlVideo: "https://i.ytimg.com/vi/HTIDstYf-Gg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAFbUwGu7JEEkOAbLJ25FWiK8-5ow",
+                            videoId: "HTIDstYf-Gg",
+                            title: "Vai fazer UM ANO que Hwei foi lançado, já passou da hora de uma SKIN NOVA! 🎨",
+                            description: "O quão RUINS (ou boas?!) foram as MUDANÇAS NO SMOLDER?",
+                            views: '69',
+                            likes: 549,
+                            dislikes: 100,
+                            comments: 10000,
+                            category: [
+                                "league of legends",
+                                "lol",
+                                'Jogos'
+
+                            ]
+                        },
+                        {
+                            ImgUrlVideo: "https://i.ytimg.com/vi/fSq6fRqUXvA/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDVJslqXHqsrNOFapqEd8cnrs1IkA",
+                            videoId: "fSq6fRqUXvA",
+                            title: "Jogar de ANNIE NO HIGH ELO é mais DIFÍCIL do que parece! 🐻",
+                            description: "O quão RUINS (ou boas?!) foram as MUDANÇAS NO SMOLDER?",
+                            views: '69',
+                            likes: 17.000,
+                            dislikes: 100,
+                            comments: 10000,
+                            category: [
+                                "league of legends",
+                                "lol",
+                                'Jogos'
+
+                            ]
+                        },
+                        {
+                            ImgUrlVideo: "https://i.ytimg.com/vi/CzY2VuxAscg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBDG2Zd3Uzgf6MkmvOipbOkuGAbbA",
+                            videoId: "CzY2VuxAscg",
+                            title: "Ainda existe jogar de TRISTANA NA MID LANE?",
+                            description: "O quão RUINS (ou boas?!) foram as MUDANÇAS NO SMOLDER?",
+                            views: '69',
+                            likes: 10.000,
+                            dislikes: 100,
+                            comments: 10000,
+                            category: [
+                                "league of legends",
+                                "lol",
+                                'Jogos'
+
+                            ]
+                        },
+                        {
+                            ImgUrlVideo: "https://i.ytimg.com/vi/HE5p1q6jpxA/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAn1cwtQQ8bUNrqp28pxiBp8Io0dw",
+                            videoId: "HE5p1q6jpxA",
+                            title: "Não consegue SUBIR DE MAGUINHO no mid?! Jogar na BOT LANE é a SOLUÇÃO!?",
+                            description: "O quão RUINS (ou boas?!) foram as MUDANÇAS NO SMOLDER?",
+                            views: '69',
+                            likes: 7900,
+                            dislikes: 100,
+                            comments: 10000,
+                            category: [
+                                "league of legends",
+                                "lol",
+                                'Jogos'
 
                             ]
                         }   
@@ -279,13 +398,166 @@ export const ProductContext = createContext<UserContextProps>({
                             dislikes: 100,
                             comments: 10000,
                             category: [
-                                "Musicas",
                                 "league of legends",
-                                "lol"
+                                "lol",
+                                'Jogos'
 
                             ]
                 }, 
-            ]}]  
+            ]} , 
+            { name: "eSports TVZAN",
+                imgUrl: "https://yt3.googleusercontent.com/ytc/AIdro_kNX0T8nPGEyvSada9IVBOS8IZ3atbj0z7LMDArQWeu8no=s160-c-k-c0x00ffffff-no-rj",
+                Inscritos: 40,
+
+                VideosUsers: [
+                    {
+                        ImgUrlVideo: "https://i.ytimg.com/vi/PRUlA0fK_ss/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrzPpt6FqCcp7p13mVAJNyVUevgQ",
+                        videoId: "PRUlA0fK_ss",
+                        title: "JOGAR DE AMBESSA E MANEIRO DEMAIS!",
+                        description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                        views: '5,2',
+                        likes: 317,
+                        dislikes: 100,
+                        comments: 10000,
+                        category: [
+                            "league of legends",
+                            "lol",
+                            "Jogos"
+
+                        ]
+            },
+            {
+                ImgUrlVideo: "https://i.ytimg.com/vi/UV7uQiwSKNw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBRzXawxtx5ZF35B8nAUiZYvnn-_A",
+                videoId: "UV7uQiwSKNw",
+                title: "FAKER VOLTOU pra SOLOQ e PUXOU um TRYNDAMERE MID, ELE É O MELHOR!",
+                description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                views: '5,2',
+                likes: 361,
+                dislikes: 100,
+                comments: 10000,
+                category: [
+                   
+                    "league of legends",
+                    "lol",
+                    "Jogos"
+
+
+                ]
+           }, 
+        ]},
+        { name: "Freeme Music",
+            imgUrl: "https://yt3.googleusercontent.com/LC83_I8Ug5YXN9z5LtuUgW2X2DzjBNb6Zxhzy0LXVc76CSa--3_SnKrEoL5qK1RMaZvoiGyrVJ0=s160-c-k-c0x00ffffff-no-rj",
+            Inscritos: 351,
+
+            VideosUsers: [
+                {
+                    ImgUrlVideo: "https://i.ytimg.com/vi/PP2Uvesx4ls/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCRdQOFc-3USghEVmb_d98vKoqn-A",
+                    videoId: "PP2Uvesx4ls",
+                    title: "Cool Gaming Music 2024 ♫ Best Music Mix, NCS, Electronic, House ♫ Best Of EDM 2024",
+                    description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                    views: '761',
+                    likes: 317,
+                    dislikes: 100,
+                    comments: 10000,
+                    category: [
+                        "Musicas",
+
+                    ]
+        }, 
+        {
+            ImgUrlVideo: "https://i.ytimg.com/vi/Obbq48DsZHE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBtCVGUynx3LqQym4_lBKmaNrZzvg",
+            videoId: "Obbq48DsZHE",
+            title: "Beautiful Female Vocal Music 2024 ♫ Top 30 Songs For Gaming ♫ Best EDM Remixes, NCS, House",
+            description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+            views: '761',
+            likes: 11,
+            dislikes: 100,
+            comments: 10000,
+            category: [
+                "Musicas", "Music", "Eletronica"
+
+            ]
+        }, 
+        {
+            ImgUrlVideo: "https://i.ytimg.com/vi/qO51Dt5UbcI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBNI_EjdWSeAONdzqM-obS_nRMH-A",
+            videoId: "qO51Dt5UbcI",
+            title: "Legendary Music Mix For Gaming ♫ Top 30 Songs ♫ Best EDM, Trap, Dubstep, Electronic, House",
+            description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+            views: '3,3',
+            likes: 11,
+            dislikes: 100,
+            comments: 10000,
+            category: [
+                "Musicas", "Music", "Eletronica"
+
+            ]
+               },
+               {
+                ImgUrlVideo: "https://i.ytimg.com/vi/qO51Dt5UbcI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBNI_EjdWSeAONdzqM-obS_nRMH-A",
+                videoId: "qO51Dt5UbcI",
+                title: "Legendary Music Mix For Gaming ♫ Top 30 Songs ♫ Best EDM, Trap, Dubstep, Electronic, House",
+                description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                views: '3,3',
+                likes: 11,
+                dislikes: 100,
+                comments: 10000,
+                category: [
+                    "Musicas", "Music", "Eletronica"
+    
+                ]
+            },
+       
+      
+    ]},
+    { name: "Guiven2",
+        imgUrl: "https://yt3.googleusercontent.com/n_JM0vQA-8J4KdGy5078x15g4_3TxH710-VryE4sSIAwwwFJyzbCioOkjXdqULCLRHL3eALa6g=s160-c-k-c0x00ffffff-no-rj",
+        Inscritos: 40,
+
+        VideosUsers: [
+            {
+                ImgUrlVideo: "https://i.ytimg.com/vi/BsHmnse2iNw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBnrIKrnRUUvz_9OBaS_XfTOoNFOQ",
+                videoId: "BsHmnse2iNw",
+                title: "FIZEMOS O COMBO POPPY + YORICK",
+                description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                views: '270',
+                likes: 270,
+                dislikes: 100,
+                comments: 10000,
+                category: [
+                    "league of legends",
+                    "lol",
+                    "Jogos"
+
+                ]
+    },
+   
+    ]},   
+    { name: "Yoda SL",
+        imgUrl: "https://yt3.googleusercontent.com/IjGab18zWcxNx4OyCq_MeISpZbrEsPhJJmTXzeLKW-sq75ZGFMg_pQ5x9EkdrCWUU2YeF5smoJM=s160-c-k-c0x00ffffff-no-rj",
+        Inscritos: 1.21,
+
+        VideosUsers: [
+            {
+                ImgUrlVideo: "https://i.ytimg.com/vi/KPJ3Vj8Cikw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAS3De3N-bEkgjoP1TzyUeEI1iyEg",
+                videoId: "KPJ3Vj8Cikw",
+                title: "ELE TENTOU GANHAR UMA PARTIDA DE LOL SEM SER VISTO! | YONEWS",
+                description: "A transformação do mercado de varejo digital é um tema de discussão abordado no curso de Tecnologia em Varejo Digital da Fortune. Neste episódio, nosso professor, Guiven, discute sobre a evolução do varejo digital e as transformações que vão impactar a próxima década.",
+                views: '270',
+                likes: 2,
+                dislikes: 100,
+                comments: 10000,
+                category: [
+                    "league of legends",
+                    "lol",
+                    "Jogos"
+
+                ]
+    },
+   
+]},
+
+
+        ]
             
             
         
@@ -310,6 +582,10 @@ export const ProductContext = createContext<UserContextProps>({
         const [filtered, SetFiltered] = useState('')
         const [filteredUser, setFilteredUser] = useState<UserProps[]>(user);
         const [inputValue, setInputValue] = useState('')
+        const [filteredUserWhitoutInput, setFilteredUserWhitoutInput] = useState('')
+       const [shuffledVideos, setShuffledVideos] = useState<any[]>([]);
+       const [limited, setLimited] = useState(6)
+   
 
 
 
@@ -331,6 +607,8 @@ export const ProductContext = createContext<UserContextProps>({
 
         const handleAnimationStartWhitoutNavigate = (locale: string) => {
             navigate(locale)
+          setInputValue('')
+          setFilteredUserWhitoutInput('')
             setAnimationHeader(true)
             setTimeout(() => {
                 setAnimationHeader(false)
@@ -341,6 +619,6 @@ export const ProductContext = createContext<UserContextProps>({
         const [animationHeader, setAnimationHeader] = useState<false | true>(false)
         return (
             // @ts-expect-error problema na tipagem
-            <ProductContext.Provider value={{user, filteredUser, SetUser, animationHeader, setAnimationHeader, SetFiltered, filtered, handleAnimationStartWhitoutNavigate, disabledLeft, setDisabled, VideoAExibir, setVideoAExibir, inputValue, setInputValue}}>{children}</ProductContext.Provider>
+            <ProductContext.Provider value={{user, filteredUser, SetUser, animationHeader, setAnimationHeader, SetFiltered, filtered, handleAnimationStartWhitoutNavigate, disabledLeft, setDisabled, VideoAExibir, setVideoAExibir, inputValue, setInputValue, setFilteredUserWhitoutInput, filteredUserWhitoutInput, shuffledVideos, setShuffledVideos, limited, setLimited}}>{children}</ProductContext.Provider>
         )
     }

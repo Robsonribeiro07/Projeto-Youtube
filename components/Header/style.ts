@@ -4,11 +4,13 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
  padding: 0.4rem 0.5rem;
  width: 100%;
- max-height: 15%;
  display: flex;
  flex-direction: row;
+
 padding-right: 2.5rem;
-padding-left: 1.5rem;
+
+padding-left: 2rem;
+
  @media screen  and (min-width: 768px) {
     justify-content: space-between;
 
@@ -47,15 +49,20 @@ padding-left: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
+
     cursor: pointer;
     z-index: 3;
         
+    img {
+        width: 6rem;
+    }
  }
  .assetsSearch {
     width: 45%;
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
    
    
 
@@ -100,7 +107,7 @@ padding-left: 1.5rem;
          
 
 
- }
+ 
 .navSearch {
     
     background-color: #121212;
@@ -118,6 +125,7 @@ padding-left: 1.5rem;
         border: 0;
         background-color: transparent;
         outline: none;
+        width: 100%;
         color: white;
     }
 

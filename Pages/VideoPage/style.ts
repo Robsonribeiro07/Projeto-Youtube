@@ -35,7 +35,7 @@ margin-left: 1.5rem;
 
     border-radius: 1rem;
     overflow: hidden;
-    height: 70%;
+    height: 74%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -53,11 +53,10 @@ margin-left: 1.5rem;
     border-radius: 1rem;
 
     iframe {
+
       height: 100%;
-      width: 100%;
-      object-fit: cover;
-
-
+      min-width : 100%;
+      object-fit: contain;
 
 
       @media screen and (max-width: 768px) {
@@ -107,22 +106,38 @@ margin-left: 1.5rem;
       }
     }
 
+    
+
     .inscritionContent{
       display: flex;
-      background-color: #272727;
-      padding: 0.3rem 0.4rem;
+      background-color: white;
+      align-items: center;
+      
+
+      padding: 0.5rem ;
       width: fit-content;
       border-radius: 1.5rem;;
       align-items: center;
       margin-left: 1rem;
-      gap: 0.5rem;
+      font-weight: 500;
+      padding-left: 1rem;
       cursor: pointer;
       height: fit-content !important;
+      font-size: 0.9rem;
+
+
+        
       
       .Inscrito {
-        padding: 0.3rem;
+        padding: 0.1rem 0rem;
+        padding-right: 1rem;
+        background-color: white;
+        color: black;
       }
     }
+    .active {
+      background-color: #272727;
+    } 
 
      img {
       width: 44px;
@@ -146,7 +161,7 @@ margin-left: 1.5rem;
       height: fit-content;
       justify-content: center;
       width: 130px;
-      padding: 0.5rem 0.5rem;
+      padding: 0.3rem 0.5rem;
 
       border-radius: 1.5rem;
       position: relative;
@@ -175,7 +190,7 @@ margin-left: 1.5rem;
       justify-content: center;
       height: fit-content;
       width: 130px;
-      padding: 0.7rem 0.5rem;
+      padding: 0.5rem 0.5rem;
       font-size: 0.9rem;
       border-radius: 1.5rem;
       font-weight: 500;

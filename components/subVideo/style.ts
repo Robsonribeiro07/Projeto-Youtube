@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
+
 export const SubVideoContent = styled.div`
 
-width:  100%;
+min-width:  100%;
 height:  15%;
 
 display: flex;
@@ -16,18 +17,20 @@ position: relative;
         flex-direction: column;
 
         p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
           
         h5 {
-            font-size: 0.8rem;
+            font-size: 1rem;
             font-weight: 300;
-            margin-top: 0.2rem;
+            margin-top: 0.4rem;
             opacity: 0.7;
         }
         h6 {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            white-space: nowrap;
             font-weight: 300;
         }
 
@@ -50,4 +53,9 @@ img {
     object-fit: contain;
 }
 
+`
+export const VideoList = styled.div`
+
+display: flex;
+flex-direction: column;
 `

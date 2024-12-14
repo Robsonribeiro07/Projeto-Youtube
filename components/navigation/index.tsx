@@ -88,7 +88,9 @@
         }
         }
         
-        const {SetFiltered} = useContext(ProductContext)
+        const {SetFiltered,} = useContext(ProductContext)
+
+     
 
         const ListNavigation = [
             "Tudo",
@@ -105,14 +107,6 @@
             "Viagens",
             "League of Legendes",
             "Fortine",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
-            "Free Fire",
             "Free Fire",
             "Free Fire",
             

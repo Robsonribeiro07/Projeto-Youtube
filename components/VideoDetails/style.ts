@@ -25,6 +25,11 @@ export const VideoContent = styled.div`
     display: flex;
     gap: 1rem;
 
+    h3 {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
     img {
         width: 35px;
         height: 35px;

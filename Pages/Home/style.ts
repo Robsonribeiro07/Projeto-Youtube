@@ -8,7 +8,16 @@ flex-direction: column;
 margin-top: 0.5rem;
 gap: 1.5rem;
 display: flex;
+padding-bottom: 1rem;
 
+.Not_found_videos {
+    position: absolute;
+    left: calc(50% - 32px);
+    top: 50%    ;
+    border-radius: 8px;
+    background-color: #222222;
+    padding: 0.9rem 2rem;
+}
 @media screen and (max-width: 768px) {
     padding: 0;
     

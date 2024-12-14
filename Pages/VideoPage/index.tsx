@@ -103,9 +103,8 @@
                     <p>{`${videoState.videoAtual.UserInformation.Inscritos ?? 0} mil Inscritos`}</p>
                   </div>
                   
-                  <div className="inscritionContent"> 
+                  <div className={`inscritionContent ${VideoAExibir.videoAtual.Inscrito ? "active" : ""}`}>
                     
-                    //
                     {VideoAExibir?.videoAtual?.Inscrito ? (
                       <>
                         <Bell size={23} />
@@ -122,9 +121,10 @@
 
                 <div className="rightSide">
                   <div className="assetLikes">
-                    <ThumbsUp size={20} onClick={handleLike} />
+                    <ThumbsUp size={25} onClick={handleLike} />
                     <p>{videoState.videoAtual.VideoLike}</p>
-                    <ThumbsDown size={20} />
+                    <p className="separator"></p>
+                    <ThumbsDown size={25} />
                   </div>
 
                   <div className="assetsShared">
@@ -153,10 +153,10 @@
               !user.VideosUsers?.some(
                 (video) => video.videoId === VideoAExibir.videoAtual.VideoId
               )
-          ).map((user) => (
+          ).map((user, index) => (
 
             // @ts-expect-error error na tipagem do video 
-            <SubVideo video={user} key={videoState.videoAtual.VideoId || VideoAExibir.videoAtual.VideoId} />
+            <SubVideo video={user} key={index} />
           ))}
         </RightSide>
       </VideoPage>
